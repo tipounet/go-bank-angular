@@ -1,0 +1,13 @@
+.users {
+  background-color: orangered;
+}
+.userParent {
+  display: flex;
+}
+.newUserSubmit {
+  width: 200px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  background-color: #cccccc;
+}

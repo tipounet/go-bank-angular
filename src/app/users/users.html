@@ -1,0 +1,29 @@
+<h2>Gestion des utilisateurs</h2>
+<!-- Parent doit etre flex -->
+<div class="userParent">
+  <!-- Bouton de création d'un utilisateur
+flex : une ligne
+
+  -->
+  <div>
+    <form (ngSubmit)="newUser()">
+      <button type="submit" class="newUserSubmit">Créer utilisateur</button>
+    </form>
+  </div>
+  <!-- Liste des utilisateurs à gauche -->
+  <ul>
+    <li *ngFor="let u of userList">
+      <a (click)="setUser(u)">
+        {{ u.prenom }} {{ u.nom}} aka {{ u.pseudo }}
+        <br /> {{ u.email }}
+      </a>
+    </li>
+  </ul>
+  <div>
+  </div>
+  <!-- Formulaire de modification de l'utilisateur sélectionné  -->
+  <div>
+  </div>
+</div>
+
+Moogli Jungle aka moogli moogli@phpjungle.info

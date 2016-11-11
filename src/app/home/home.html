@@ -1,0 +1,43 @@
+<h3>Liste de vos comptes</h3>
+<span>{{getUserName()}} voici la liste de vos comptes :</span> <br />
+<ul>
+  <li *ngFor="let a of listAccount">
+    <a [routerLink]="['/account', a]">
+      {{ a.number }}
+    </a>
+  </li>
+</ul>
+<form #accountForm="ngForm" (ngSubmit)="onSubmit()">
+  <label for="accountNumber">Numéro</label>
+  <!-- #newAccount  -->
+  <input id="accountNumber" type="text" placeholder="numero de compte" required minlength="4" maxlength="50" name="name" [(ngModel)]="account.number"
+   #name="ngModel" class="form-control" />
+
+  <br />
+  <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+    <div [hidden]="!name.errors.required">
+      Le numéro de compte est obligatoire
+    </div>
+    <div [hidden]="!name.errors.minlength">
+      Le numéro de compte doit avoir 4 caractères minimum.
+    </div>
+    <div [hidden]="!name.errors.maxlength">
+      Le numéro de compte doit faire maximum 50 caractères.
+    </div>
+  </div>
+  <label for="bank">Banque</label>
+  <!-- #selectedBank -->
+  <select id="bank" required [(ngModel)]="account.bank.name" #bank="ngModel"  name="bank" class="form-control">
+    <option>----</option>
+    <option *ngFor="let b of listBank" id="{{ b.id }}">{{ b.name }}</option>
+  </select>
+  <div *ngIf="bank.errors && (bank.dirty || bank.touched)" class="alert alert-danger">
+    <div [hidden]="!bank.errors.required">
+      La banque est obligatoire
+    </div>
+  </div>
+
+  <br />
+
+  <button type="submit" class="btn btn-default" [disabled]="!accountForm.form.valid">Submit</button>
+</form>

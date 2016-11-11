@@ -1,0 +1,13 @@
+<h2>Connexion</h2>
+
+<form (ngSubmit)="login()">
+  <label for="mail" class="login-label">Email</label>
+  <input type="email" name="mail" id="mail" required="required" [(ngModel)]="user.email" checked="checked" />
+
+  <br />
+  <label for="passwd" class="login-label">User ID</label>
+  <input type="password" name="passwd" id="passwd" required="required" [(ngModel)]="user.pwd" checked="checked" min="5" />
+
+  <br />
+  <button type="submit" class="login-submit">Log in</button>
+</form>
